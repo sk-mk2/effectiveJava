@@ -1,0 +1,11 @@
+apply plugin: 'java'
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'example.Main'
+    }
+}
+
+task run(type:Exec, dependsOn:'build') {
+    commandLine 'java', '-jar', 'build/libs/effectiveJava.jar', '123', '456', '7890'       
+}
